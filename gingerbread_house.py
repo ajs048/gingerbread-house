@@ -276,6 +276,7 @@ create_3d_object(fig, roof1_vertices3d, np.array([0, 0, x1]), 'red')
 roof2_vertices3d = np.array([v + z_offset_roof for v in roof2_vertices])
 create_3d_object(fig, roof2_vertices3d, np.array([0, 0, x1]), 'red')
 
+k_view = 1.25
 fig.update_layout(
     scene=dict(
         aspectmode='data',  # Ensure equal scaling along all axes
@@ -284,7 +285,7 @@ fig.update_layout(
         zaxis=dict(title='Depth', visible=False),
         camera=dict(
             up=dict(x=0, y=1, z=0),  # Set the direction of the up vector (use z for vertical)
-            eye=dict(x=1, y=.3, z=1.5)  # Adjust x, y, z values to change the default view
+            eye=dict(x=1*k_view, y=.3*k_view, z=1.5*k_view)  # Adjust x, y, z values to change the default view
         )
     ),
     showlegend=False,
